@@ -50,3 +50,6 @@ with open("dna.txt", "r") as file_handle:
         suspect_dna = i
 
 print(suspect_dna)
+
+suspect = suspect_dna.find(hair_color_brown)
+print(suspect)
