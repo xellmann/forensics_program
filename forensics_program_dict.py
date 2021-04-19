@@ -1,3 +1,5 @@
+import json
+
 suspect_dna = ""
 
 hair_color_black = "CCAGCAATCGC"
@@ -20,15 +22,51 @@ race_black = "CGACTACAG"
 race_asian = "CGCGGGCCG"
 
 eva = ["blonde", "oval", "blue", "female", "white"]
-larisa = ["brown", "oval", "brown", "female", "white"]
-matej = ["black", "oval", "blue", "male", "white"]
-miha = ["brown", "square", "green", "male", "white"]
+eva_gender = "female"
+eva_race = "white"
+eva_hair_color = "blonde"
+eva_eye_color = "blue"
+eva_face_shape = "oval"
 
+larisa = ["brown", "oval", "brown", "female", "white"]
+larisa_gender = "female"
+larisa_race = "white"
+larisa_hair_color = "brown"
+larisa_eye_color = "brown"
+larisa_face_shape = "oval"
+
+matej = ["black", "oval", "blue", "male", "white"]
+matej_gender = "male"
+matej_race = "white"
+matej_hair_color = "black"
+matej_eye_color = "blue"
+matej_face_shape = "oval"
+
+miha = ["brown", "square", "green", "male", "white"]
+miha_gender = "male"
+miha_race = "white"
+miha_hair_color = "brown"
+miha_eye_color = "green"
+miha_face_shape = "square"
 
 with open("dna.txt", "r") as file_handle:
+    print(file_handle)
     lines = file_handle.read().splitlines()
     for i in lines:
         suspect_dna = i
+
+print(suspect_dna)
+
+suspect = suspect_dna.find(hair_color_brown)
+print(suspect)
+
+with open("person.json", "r") as file_handle:
+    person_dict = json.loads(file_handle.read())
+    print(person_dict)
+
+with open("human_characteristics.json", "r") as file_handle:
+    human_characteristics_dict = json.loads(file_handle.read())
+    print(human_characteristics_dict)
 
 if suspect_dna.find(hair_color_black) != -1:
     suspect_hair_color = "black"
